@@ -1,6 +1,8 @@
 import java.util.Comparator;
 
-public class Order {
+
+
+public class Order implements Comparable<Order>{
     String item;
     String orderId;
     String shippedFrom;
@@ -36,16 +38,14 @@ public class Order {
         this.shippedFrom = shippedFrom;
     }
 
-    public static Comparator<Order> comp = new Comparator<Order>() {
-        @Override
-        public int compare(Order o1, Order o2) {
-            String itemName1 = o1.getItem();
-            String itemName2 = o2.getItem();
 
-            return itemName1.compareTo(itemName2);
-        }};
-
-
+    @Override
+    public int compareTo(Order o) {
+        return Comparator.comparing(Order::getItem)
+                .thenComparing(Order::getOrderId)
+                .thenComparing(Order::getShippedFrom)
+                .compare(this, o);
+    }
 
 
 
@@ -54,4 +54,6 @@ public class Order {
                    orderId + " " +
                 shippedFrom + " ";
     }
+
+
 }

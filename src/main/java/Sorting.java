@@ -5,14 +5,18 @@ public class Sorting {
     public static void main(String[] args) {
         ArrayList<Order> orders = new ArrayList<Order>();
         Order a = new Order("Phone", "123", "Tokyo");
-        Order b = new Order("Dress", "198", "New York");
+        Order b = new Order("Dress", "200", "New York");
         Order c = new Order("Laptop", "245", "San Francisco");
         Order d = new Order("Suit", "067", "Philadelphia");
+        Order e = new Order("Dress", "100", "Minsk");
+        Order f = new Order("Dress", "200", "Alaska");
 
         orders.add(a);
         orders.add(b);
         orders.add(c);
         orders.add(d);
+        orders.add(e);
+        orders.add(f);
 
         ArrayList<Order> modifiedOrders = new ArrayList<>();
 
@@ -23,7 +27,7 @@ public class Sorting {
             }
         }
 
-        Collections.sort(modifiedOrders, Order.comp);
+        Collections.sort(modifiedOrders);
 
 
         for(Order o: modifiedOrders) {
